@@ -16,7 +16,8 @@ mongoose.connect(process.env.MONGODB_URI)
 
 
 //routes
-
+const orderRoutes = require('./routes/orders')
+app.use('/api/orders',orderRoutes)
 
 app.listen(process.env.PORT, () => {
   console.log(`Order-Service is running on port ${process.env.PORT}`);

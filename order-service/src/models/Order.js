@@ -3,14 +3,22 @@ const Schema = mongoose.Schema;
 
 
 const orderSchema = new Schema({
-    
-    
-    status:{
-        type:String,
-        default:"pending",
-        enum:["pending","completed","cancelled"]
+  userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+  products: [
+    {
+      productId: { type: Schema.Types.ObjectId, required: true, ref: 'Product' },
+      quantity: { type: Number, required: true, min: 1 }
     }
-    ,totalAmount:{type:Number, required:true},
-    createdAt: { type: Date, default: Date.now }
+  ],
+  status: {
+    type: String,
+    enum: ["pending", "completed", "cancelled"],
+    default: "pending"
+  },
+  totalAmount: { type: Number, required: true },
+  createdAt: { type: Date, default: Date.now }
+});
 
-})
+
+const Order = mongoose.model('Order',orderSchema)
+module.exports = Order;
