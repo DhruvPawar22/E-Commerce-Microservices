@@ -24,7 +24,7 @@ GET http://localhost:5000/api/products
 ###Placing an order
 POST http://localhost:5002/api/orders
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE3OTkyMjM1OGE3ZGFlNjhiNzQ3YSIsInVzZXJuYW1lIjoianVzdGluZyB0aG9tYXMiLCJpYXQiOjE3NTAxNzIxMjcsImV4cCI6MTc1MDE3NTcyN30.n6aAfF6mo-nptkXbB3WjopjW8K8CywHAc89VYOXxIr8
+Authorization:
 
 {
   "products": [
