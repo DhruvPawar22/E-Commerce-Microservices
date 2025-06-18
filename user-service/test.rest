@@ -20,12 +20,10 @@ Content-Type: application/json
 ### Get User Profile
 GET http://localhost:5001/api/users/profile
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ3Yzc1YjJkZDRmM2Q3ZmY0YWZlNyIsInVzZXJuYW1lIjoianVzdGluZyB0aG9tYXMiLCJpYXQiOjE3NTAwNjk1NzQsImV4cCI6MTc1MDA3MzE3NH0.EZ44YaMJcRuqCvXhsUPUvuEa0J9ZDaY97hWofRSQMhY
 
 ### Update User Profile
 PUT http://localhost:5001/api/users/profile
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGQ3Yzc1YjJkZDRmM2Q3ZmY0YWZlNyIsInVzZXJuYW1lIjoianVzdGluZyB0aG9tYXMiLCJpYXQiOjE3NTAwNjk1NzQsImV4cCI6MTc1MDA3MzE3NH0.EZ44YaMJcRuqCvXhsUPUvuEa0J9ZDaY97hWofRSQMhY
 
 {
     "username": "justin thomas",
