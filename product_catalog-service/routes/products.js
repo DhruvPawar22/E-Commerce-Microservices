@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
-
+const mongoose = require('mongoose')
 
 // Create a new product
 router.post('/',async(req,res)=>{
@@ -63,5 +63,32 @@ router.delete('/:id', async(req, res) => {
         res.status(500).json({ message: 'Error deleting product', error });
     }
 })
+// update a product by id when order is placed ie reduce stock by number of things bought
+router.put('/success/:id', async(req, res) => {
+    try {
+        const decrementBy = Number(req.body.decrementBy);
 
+        /*const product = await Product.findOneAndUpdate(
+          { _id: new mongoose.Types.ObjectId(req.params.id) }, // No stock filter
+          { $inc: { stock: -decrementBy } },
+          { new: true }
+        );*/
+ const product = await Product.findOneAndUpdate(
+            { _id: new mongoose.Types.ObjectId(req.params.id), stock: { $gte: decrementBy } },
+            { $inc: { stock: -decrementBy } },
+            { new: true }
+        );
+        console.log(product);
+
+        if (!product) {
+          return res.status(409).json({ message: 'Product not found/ theres not enough stock' });
+        }
+        res.status(200).json({ message: 'Product stock updated successfully', product });
+
+    } catch (error) {
+        console.log(error)
+         res.status(500).json({ 
+        message: "Error updating product"    });
+    }
+});
 module.exports = router;

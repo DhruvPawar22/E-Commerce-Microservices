@@ -6,7 +6,7 @@ const productSchema = new Schema({
   description: String,
   price: { type: Number, required: true },
   category: String,
-  inStock: { type: Boolean, default: true },
+  stock: { type: Number, default: true },
   createdAt: { type: Date, default: Date.now },
   sku: { type: String, unique: true },
 })

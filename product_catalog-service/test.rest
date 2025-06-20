@@ -10,27 +10,27 @@ POST http://localhost:5000/api/products
 Content-Type: application/json
 
 {
-  "name": "Phone Model Y",
+  "name": "PS2",
   "description": "A great product for testing.",
-  "price": 99.99,
+  "price": 299.99,
   "category": "Electronics",
-  "inStock": true,
-  "sku": "SKU1235"
+  "stock": 10,
+  "sku": "SKU99"
 }
 ### get product by id
 GET http://localhost:5000/api/products/684c05731e0c39356596966f
 
 ### update product by id
-PUT http://localhost:5000/api/products/684c05731e0c39356596966f
+PUT http://localhost:5000/api/products/6852cad3818f6bf74e3b63de
 Content-Type: application/json
 
 {
-  "name": "Phone Model XYZ",
-  "description": "An updated description.",
-  "price": 89.99,
+  "name": "PS%",
+  "description": "Gaming Console",
+  "price": 199.99,
   "category": "Electronics",
-  "inStock": false,
-  "sku": "SKU12356"
+  "stock": 10,
+  "sku": "SKU1"
 }
 
 ### delete product by id
