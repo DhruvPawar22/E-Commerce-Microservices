@@ -1,0 +1,38 @@
+const express = require('express')
+const mongoose = require('mongoose')
+const router = express.Router();
+const Cart = require('../models/Cart')
+const authenticateToken = require('../middleware/authenticateToken')
+
+//get current users cart get
+router.get('/',authenticateToken, async (req,res) => {
+    try{
+        const cart = await Cart.find({userId:req.user.id})
+        res.status(200).json(cart)
+    }
+    catch(error){
+        res.status(500).json({message:"Error getting Order"})
+    }
+} )
+//add products to cart post
+router.post('/add', authenticateToken,async (req,res) => {
+    try {
+        const {products}=req.body;
+        console.log(products)
+        const cart = new Cart({userId:req.user.id, products});
+        await cart.save();
+        res.status(200).json(cart)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({message:"Error adding products",error})
+    }
+})
+//update quantity of cart put
+
+//remove singular product from cart 
+
+//remove all products from cart
+
+
+
+module.exports=router;
