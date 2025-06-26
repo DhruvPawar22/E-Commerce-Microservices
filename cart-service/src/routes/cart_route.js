@@ -18,16 +18,33 @@ router.get('/',authenticateToken, async (req,res) => {
 router.post('/add', authenticateToken,async (req,res) => {
     try {
         const {products}=req.body;
-        console.log(products)
-        const cart = new Cart({userId:req.user.id, products});
-        await cart.save();
+        let cart = await Cart.findOne({userId:req.user.id})
+        if(!cart)//fresh/cart doesnt exist yet
+        {
+            cart = new Cart({userId:req.user.id,products})
+            await cart.save();
+        }//else update cart
+        else{
+            
+            products.forEach(({productId,quantity}) => {
+                const existingProduct=cart.products.find(
+                    (item)=>item.productId==productId
+                );
+            if(existingProduct){
+                existingProduct.quantity+=quantity
+            }
+            else{
+                cart.products.push({productId,quantity})
+            }
+            });
+            await cart.save();
+        }
         res.status(200).json(cart)
     } catch (error) {
         console.log(error)
         res.status(500).json({message:"Error adding products",error})
     }
 })
-//update quantity of cart put
 
 //remove singular product from cart 
 
