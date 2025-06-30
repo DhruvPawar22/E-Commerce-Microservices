@@ -40,7 +40,7 @@ router.post('/', authenticateToken, async (req, res) => {
 
         const order = new Order({
             userId: req.user.id,
-            status: "completed",
+            status: "pending",
             products,
             totalAmount
         });
