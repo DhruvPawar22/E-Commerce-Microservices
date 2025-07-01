@@ -43,9 +43,23 @@ router.post('/process',authenticateToken, async (req,res)=>
         // 4. Update payment status based on Stripe response
         if (confirmedIntent.status === 'succeeded') {
             payment.status = 'completed';
-            // Optionally update order status
+            //Uupdate order status
             await axios.put(orderServiceUrl, { status: "completed" }, {
                 headers: { Authorization: req.headers.authorization }
+            });
+            //get useremail from user service
+            const user_url=process.env.USER_SERVICE_URL;
+            const get_Email= await axios.get(user_url,{
+            headers: { Authorization: req.headers.authorization }//protected route
+            })
+            const user_email=get_Email.data.email;
+
+            //send email to the respective email
+            const email_url=process.env.EMAIL_SERVICE_URL
+            await axios.post(email_url,{
+                to:user_email,
+                subject:'Payment Successful',
+                text:`Your Payment was successful for price ${totalAmount}`
             });
         } else {
             payment.status = 'failed';
