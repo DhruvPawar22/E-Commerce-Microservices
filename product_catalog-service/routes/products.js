@@ -67,12 +67,6 @@ router.delete('/:id', async(req, res) => {
 router.put('/success/:id', async(req, res) => {
     try {
         const decrementBy = Number(req.body.decrementBy);
-
-        /*const product = await Product.findOneAndUpdate(
-          { _id: new mongoose.Types.ObjectId(req.params.id) }, // No stock filter
-          { $inc: { stock: -decrementBy } },
-          { new: true }
-        );*/
  const product = await Product.findOneAndUpdate(
             { _id: new mongoose.Types.ObjectId(req.params.id), stock: { $gte: decrementBy } },
             { $inc: { stock: -decrementBy } },

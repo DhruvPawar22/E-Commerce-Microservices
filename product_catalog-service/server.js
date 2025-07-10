@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const productsRouter = require('./routes/products');
 app.use('/api/products', productsRouter);
+module.exports=app;
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

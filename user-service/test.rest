@@ -14,11 +14,12 @@ POST http://localhost:5001/api/users/login
 Content-Type: application/json
 
 {
-    "username": "justing thomas",
-    "password": "dhruv123"
+    "username": "Dhruv",
+    "password": "Dhruv"
 }
 ### Get User Profile
 GET http://localhost:5001/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjNlMmRjNDc2ODU5ZTMzYjk1MWE0ZCIsInVzZXJuYW1lIjoiRGhydXYiLCJpYXQiOjE3NTIwNjYyNTEsImV4cCI6MTc1MjA2OTg1MX0.Xzo9cbPm9XBsTUNzxLhinaQAv0eKNoo450RcLlCex-M
 Content-Type: application/json
 
 ### Update User Profile
