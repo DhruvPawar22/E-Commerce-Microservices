@@ -12,7 +12,7 @@ app.use(cors());
 const userRoutes = require('./routes/authRoutes');
 app.use('/api/users', userRoutes);
 
-
+module.exports=app;
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });

@@ -7,7 +7,7 @@ const authenticateToken = require('../middleware/authenticateToken');
 // Register a new user
 router.post('/register', async (req,res) => {
     try {
-        const {username, password , email, firstname,lastname} = req.body;
+        const {username, password , email, firstName,lastName} = req.body;
         const existingUser = await User.findOne({ username, email });
         if (existingUser) {
             return res.status(400).json({ message: 'Username or email already exists' });
@@ -19,8 +19,8 @@ router.post('/register', async (req,res) => {
             username,
             password: hashedPassword,
             email,
-            firstName: firstname,
-            lastName: lastname
+            firstName: firstName,
+            lastName: lastName
         });
         await newUser.save();
         const token = jwt.sign(
