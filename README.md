@@ -14,20 +14,20 @@ Each service can be started, tested, or deployed on its own — ideal for CI/CD 
 Scalability:
 Easily scale individual services based on real load.
 Microservices
-User Service: Handles user registration, authentication, and profile management.
-Product Catalog Service: Manages product listings, categories, and inventory.
-Shopping Cart Service: Manages users’ shopping carts, including adding/removing items and updating quantities.
-Order Service: Processes orders, including placing orders, tracking order status, and managing order history.
-Payment Service: Handles payment processing, integrating with external payment gateways (Utilized Stripe).
-Notification Service: Sends email and SMS notifications for various events (Utilized NodeMailer).
+- User Service: Handles user registration, authentication, and profile management.
+- Product Catalog Service: Manages product listings, categories, and inventory.
+- Shopping Cart Service: Manages users’ shopping carts, including adding/removing items and updating quantities.
+- Order Service: Processes orders, including placing orders, tracking order status, and managing order history.
+- Payment Service: Handles payment processing, integrating with external payment gateways (Utilized Stripe).
+- Notification Service: Sends email and SMS notifications for various events (Utilized NodeMailer).
 
 Tech Stack
-Node.js, Express.js
+- Node.js, Express.js
 
-MongoDB (+ Mongoose)
+- MongoDB (+ Mongoose)
 
-Docker & Docker Compose (for development and orchestration)
+- Docker & Docker Compose (for development and orchestration)
 
-Stripe, NodeMailer
+- Stripe, NodeMailer
 
-Jest / Supertest (for robust automated testing)
+- Jest / Supertest (for robust automated testing)
