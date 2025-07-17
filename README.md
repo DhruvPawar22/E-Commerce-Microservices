@@ -1,5 +1,5 @@
-E-Commerce Microservices Backend
-A scalable, modular e-commerce backend (Node.js/Express/MongoDB) using the microservices architecture. Each domain (Users, Products, Orders, etc.) is managed by an independent service; all communication occurs via REST APIs for maximum flexibility, modularity, and real-world learning.
+#E-Commerce Microservices Backend
+##A scalable, modular e-commerce backend (Node.js/Express/MongoDB) using the microservices architecture. Each domain (Users, Products, Orders, etc.) is managed by an independent service; all communication occurs via REST APIs for maximum flexibility, modularity, and real-world learning.
 
 Architecture
 Microservices-based:
