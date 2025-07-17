@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI).then(()=>{
 //routes
 const paymentRoutes= require('./routes/payment-route')
 app.use('/api/payment',paymentRoutes)
-
+module.exports=app;
 app.listen(process.env.PORT,()=>{
     console.log(`Payment-Service is running on port ${process.env.PORT}`);
 })
