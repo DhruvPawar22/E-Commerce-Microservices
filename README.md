@@ -23,7 +23,7 @@ Easily scale individual services based on real load. <br/>
 - Notification Service: Sends email and SMS notifications for various events (Utilized NodeMailer).
 
 ### Tech Stack
-**- Node.js, Express.js
+- Node.js, Express.js
 
 - MongoDB (+ Mongoose)
 
@@ -32,4 +32,3 @@ Easily scale individual services based on real load. <br/>
 - Stripe, NodeMailer
 
 - Jest / Supertest (for robust automated testing)
-**
