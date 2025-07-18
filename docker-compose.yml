@@ -1,0 +1,75 @@
+version: '3.8'
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./user-service/.env
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce-net
+  product_catalog-service:
+    build: ./product_catalog-service
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./product_catalog-service/.env
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce-net
+  payment-service:
+    build: ./payment-service
+    ports:
+      - "5004:5004"
+    env_file:
+      - ./payment-service/.env
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce-net
+  order-service:
+    build: ./order-service
+    ports:
+      - "5002:5002"
+    env_file:
+      - ./order-service/.env
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce-net
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "5005:5005"
+    env_file:
+      - ./notification-service/.env
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce-net
+  cart-service:
+    build: ./cart-service
+    ports:
+      - "5003:5003"
+    env_file:
+      - ./cart-service/.env
+    depends_on:
+      - mongo
+    networks:
+      - ecommerce-net
+  mongo:
+    image: mongo:6
+    restart : always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - ecommerce-net
+volumes:
+  mongo_data:
+networks:
+  ecommerce-net:
